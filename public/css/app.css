@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    z-index: -999;
+}
+
+header {
+    height: 15vh;
+}
+
+nav .d-lg-flex ul li a {
+    font-weight: bold;
+}
+
+nav ul li a.btn {
+    background-color: #d6d1d1;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+}
+
+/* main content */
+main {
+    height: 80vh;
+}
+
+.poster img {
+    position: relative;
+    bottom: 0;
+}
+
+/* Footer */
+footer {
+    height: 5vh;
+}
+
+@media screen and (max-width: 875px) {
+    header {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 625px) {
+    header {
+        font-size: 0.6em;
+    }
+
+    main .container {
+        flex-direction: column;
+    }
+}
+
+/* hubungi kami */
+h4,
+h6 {
+    font-weight: bold;
+}
+
+.maps iframe {
+    width: 100%;
+}
+
+/* tentang kami */
+h3 {
+    font-weight: bold;
+    font-style: normal;
+    line-height: normal;
+}
+
+span {
+    color: #ffde59;
+}
+
+.text {
+    color: #000;
+    font-family: Poppins;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/* login */
+.login {
+    display: flex;
+
+    flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.log {
+    margin: 80px;
+    width: 400px;
+    height: 300px;
+
+    background: #fff;
+    box-shadow: 0px 4px 18.9px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.text-bold {
+    color: #000;
+    font-weight: 500;
+}
+
+#email,
+#pw {
+    width: 98%;
+    padding: 5px;
+}
+
+#btn {
+    padding: 5px;
+    width: 40%;
+}
