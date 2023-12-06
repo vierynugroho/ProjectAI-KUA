@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('pasangan', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_pria')->unsigned();
-            $table->bigInteger('id_wanita')->unsigned();
+            $table->integer('id_pria');
+            $table->integer('id_wanita');
             $table->boolean('data_status')->default(false);
             $table->timestamps();
 

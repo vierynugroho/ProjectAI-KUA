@@ -10,7 +10,7 @@
                 </div>
                 <div class="col d-flex justify-content-end w-100 mt-3">
                     <a class="btn btn-warning w-50 fw-bold"
-                       href="/akurasi-data">Tambah Data</a>
+                       href="/data/create">Tambah Data</a>
                 </div>
             </div>
             <div class="table-responsive mt-3">
@@ -19,8 +19,7 @@
                     <thead>
                         <tr class="table-success">
                             <th>No</th>
-                            <th>Nama Customer</th>
-                            <th>Data Pernikahan</th>
+                            <th>Nama Pasangan</th>
                             <th>Status Data</th>
                             <th>Aksi</th>
                         </tr>
@@ -32,11 +31,9 @@
                             <td>1</td>
                             <td>2</td>
                             <td>3</td>
-                            <td>4</td>
                             <td>
-                                <button class="btn btn-warning"
-                                        type="submit"
-                                        name="">Akurasi</button>
+                                <a class="btn btn-warning"
+                                   href="data/1">Akurasi</a>
                                 <button class="btn btn-primary"
                                         type="submit"
                                         name="">Edit</button>

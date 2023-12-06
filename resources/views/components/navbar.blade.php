@@ -26,15 +26,10 @@
                     href="
                        /data">Data</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('akurasi-data') ? 'active' : '' }}""
-                    href="
-                       /akurasi-data">Akurasi Data</a>
-                </li>
                 @endauth
 
-                <li class="nav-item">
+                <li class="
+                       nav-item">
                     <a class="nav-link {{ Request::is('tentang-kami') ? 'active' : '' }}""
                        href="
                        /tentang-kami">Tentang Kami</a>

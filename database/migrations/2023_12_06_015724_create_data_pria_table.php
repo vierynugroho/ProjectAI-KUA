@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('data_pria', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id')->primary();
             $table->string('nama_lengkap', 60);
-            $table->string('kk', 255);
-            $table->string('ktp', 255);
-            $table->string('akta_ayah', 255);
-            $table->string('akta_ibu', 255);
+            $table->string('kk', 255)->default('');
+            $table->string('ktp', 255)->default('');
+            $table->string('akta_ayah', 255)->default('');
+            $table->string('akta_ibu', 255)->default('');
             $table->timestamps();
         });
     }
