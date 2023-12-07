@@ -17,11 +17,10 @@ class DataController extends Controller
      */
     public function index()
     {
-        if (request()->ajax()) {
-            $users = User::query();
-            return DataTables::of($users)->make();
-        }
-        return view('data');
+        $datas = Pasangan::with(['DataPria', 'DataWanita'])->get();
+        return view('data', [
+            'datas' => $datas
+        ]);
     }
 
     /**

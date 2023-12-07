@@ -33,14 +33,17 @@
                     </thead>
 
                     <tbody>
-
+                        @php
+                        $i = 1;
+                        @endphp
+                        @foreach ($datas as $data)
                         <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $data->DataPria->nama_lengkap }} - {{ $data->DataWanita->nama_lengkap }}</td>
+                            <td>{{ $data->status_status ? 'Valid' : 'Invalid' }}</td>
                             <td>
                                 <a class="btn btn-warning"
-                                   href="data/1">Akurasi</a>
+                                   href="data/{{ $data->id }}">Akurasi</a>
                                 <button class="btn btn-primary"
                                         type="submit"
                                         name="">Edit</button>
@@ -49,6 +52,7 @@
                                         name="">Hapus</button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

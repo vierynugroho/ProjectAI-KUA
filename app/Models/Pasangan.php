@@ -13,4 +13,15 @@ class Pasangan extends Model
         'id_pria',
         'id_wanita',
     ];
+
+
+    public function DataPria()
+    {
+        return $this->hasOne(DataPria::class, 'id', 'id_pria');
+    }
+
+    public function DataWanita()
+    {
+        return $this->hasOne(DataWanita::class, 'id', 'id_wanita');
+    }
 }
