@@ -40,7 +40,6 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-
         // $validatedDataPria = $request->validate([
         //     'pria__id' => 'required',
         //     'pria__nama' => 'required|max:255',
@@ -105,7 +104,6 @@ class DataController extends Controller
         DataPria::create($validatedDataPria);
         DataWanita::create($validatedDataWanita);
         Pasangan::create($validatedPasangan);
-
 
         return redirect('/data')->with('success', 'Data Ditambahkan!');
     }

@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container d-flex mt-5">
+    @if(session('success'))
+    <div class="container">
+        <div class="alert alert-success">
+            <b>Yeayy!</b> {{session('success')}}
+        </div>
+    </div>
+    @endif
     <div class="justify-content-evenly align-items-center w-100">
         <div class="mt-5">
             <div class="row">

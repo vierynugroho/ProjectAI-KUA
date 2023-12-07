@@ -28,8 +28,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect('/data');
         } else {
-            Session::flash('error', 'Email atau Password Salah');
-            return redirect('/login');
+            return redirect('/login')->with('error', 'Login Error, Masukkan Data Login Dengan Benar!');
         }
     }
 

@@ -25,11 +25,11 @@
                                name="pria__nama">
                     </div>
                     <div class="mb-3">
-                        <label for="pria__kartu-keluarga">Kartu Keluarga Pria</label>
+                        <label for="pria__kk">Kartu Keluarga Pria</label>
                         <input type="file"
                                class="form-control"
-                               id="pria__kartu-keluarga"
-                               name="pria__kartu-keluarga">
+                               id="pria__kk"
+                               name="pria__kk">
                     </div>
                     <div class="mb-3">
                         <label for="pria__ktp">KTP Pria</label>
@@ -57,25 +57,25 @@
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <div class="mb-3">
-                        <label for="wanita_nama">Nama Lengkap Wanita</label>
+                        <label for="wanita__nama">Nama Lengkap Wanita</label>
                         <input type="text"
                                class="form-control"
-                               id="wanita_nama"
+                               id="wanita__nama"
                                name="wanita__nama">
                     </div>
                     <div class="mb-3">
-                        <label for="wanita_kartu-keluarga">Kartu Keluarga Pria</label>
+                        <label for="wanita__kk">Kartu Keluarga Wanita</label>
                         <input type="file"
                                class="form-control"
-                               id="wanita_kartu-keluarga"
-                               name="wanita_kartu-keluarga">
+                               id="wanita__kk"
+                               name="wanita__kk">
                     </div>
                     <div class="mb-3">
-                        <label for="wanita_ktp">KTP Wanita</label>
+                        <label for="wanita__ktp">KTP Wanita</label>
                         <input type="file"
                                class="form-control"
-                               id="wanita_ktp"
-                               name="wanita_ktp">
+                               id="wanita__ktp"
+                               name="wanita__ktp">
                     </div>
                     <div class="mb-3">
                         <label for="wanita__akta-ayah">Akta Ayah Wanita</label>
@@ -85,11 +85,11 @@
                                name="wanita__akta-ayah">
                     </div>
                     <div class="mb-3">
-                        <label for="wanita_akta-ibu">Akta Ibu Wanita</label>
+                        <label for="wanita__akta-ibu">Akta Ibu Wanita</label>
                         <input type="file"
                                class="form-control"
-                               id="wanita_akta-ibu"
-                               name="wanita_akta-ibu">
+                               id="wanita__akta-ibu"
+                               name="wanita__akta-ibu">
                     </div>
                 </div>
             </div>

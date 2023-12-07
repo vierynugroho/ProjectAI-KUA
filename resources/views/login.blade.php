@@ -1,12 +1,14 @@
 @extends('templates.template')
 
 @section('content')
-<div class="container d-flex mt-5">
-    @if(session('error'))
+@if(session('error'))
+<div class="container">
     <div class="alert alert-danger">
         <b>Opps!</b> {{session('error')}}
     </div>
-    @endif
+</div>
+@endif
+<div class="container d-flex mt-5">
     <div class="d-flex justify-content-evenly align-items-center w-100 mt-5">
         <div class="poster">
             <img src="./assets/ilustrator-login.png"
