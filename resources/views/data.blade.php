@@ -40,16 +40,27 @@
                         <tr>
                             <td>{{ $i++ }}</td>
                             <td>{{ $data->DataPria->nama_lengkap }} - {{ $data->DataWanita->nama_lengkap }}</td>
-                            <td>{{ $data->status_status ? 'Valid' : 'Invalid' }}</td>
-                            <td>
-                                <a class="btn btn-warning"
+                            <td class="text-center">
+                                @if ($data->data_status)
+                                <span class="badge text-bg-success">Valid</span>
+                                @else
+                                <span class="badge text-bg-danger">Invalid</span>
+                                @endif
+                            </td>
+                            <td class="d-flex justify-content-evenly ">
+                                <a class="btn btn-sm btn-warning"
                                    href="data/{{ $data->id }}">Akurasi</a>
-                                <a class="btn btn-primary"
+                                <a class="btn btn-sm btn-primary"
                                    href="/data/{{ $data->id }}/edit"
                                    name="">Edit</a>
-                                <button class="btn btn-danger"
-                                        type="submit"
-                                        name="">Hapus</button>
+                                <form action="{{ route('data.destroy', $data->id) }}"
+                                      method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-sm btn-danger"
+                                            type="submit">Hapus</button>
+                                </form>
+
                             </td>
                         </tr>
                         @endforeach

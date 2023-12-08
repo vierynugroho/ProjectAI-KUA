@@ -208,6 +208,44 @@ class DataController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $dataPasangan = Pasangan::findOrFail($id);
+
+        $pria__id = $dataPasangan->DataPria->id;
+        $wanita__id = $dataPasangan->DataWanita->id;
+
+        $dataPria = DataPria::findOrFail($pria__id);
+        $dataWanita = DataWanita::findOrFail($wanita__id);
+
+
+        if ($dataPria->kk) {
+            Storage::delete($dataPria->kk);
+        }
+        if ($dataPria->ktp) {
+            Storage::delete($dataPria->ktp);
+        }
+        if ($dataPria->akta_ayah) {
+            Storage::delete($dataPria->akta_ayah);
+        }
+        if ($dataPria->akta_ibu) {
+            Storage::delete($dataPria->akta_ibu);
+        }
+
+        if ($dataWanita->kk) {
+            Storage::delete($dataWanita->kk);
+        }
+        if ($dataWanita->ktp) {
+            Storage::delete($dataWanita->ktp);
+        }
+        if ($dataWanita->akta_ayah) {
+            Storage::delete($dataWanita->akta_ayah);
+        }
+        if ($dataWanita->akta_ibu) {
+            Storage::delete($dataWanita->akta_ibu);
+        }
+
+        $dataPasangan->delete();
+        $dataPria->delete();
+        $dataWanita->delete();
+        return redirect('/data')->with('success', 'Data Dihapus!');
     }
 }
