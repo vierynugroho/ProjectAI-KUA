@@ -35,6 +35,19 @@ main {
     bottom: 0;
 }
 
+/* edit */
+input #edit {
+    color: red;
+    display: none;
+}
+
+#edit[value=""]+#edit::before {
+    color: red;
+    content: "*Belum ada data";
+    position: absolute;
+    right: 0;
+}
+
 /* Footer */
 footer {
     height: 5vh;

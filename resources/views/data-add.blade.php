@@ -22,7 +22,8 @@
                         <input type="text"
                                class="form-control"
                                id="pria__nama"
-                               name="pria__nama">
+                               name="pria__nama"
+                               required>
                     </div>
                     <div class="mb-3">
                         <label for="pria__kk">Kartu Keluarga Pria</label>
@@ -61,7 +62,8 @@
                         <input type="text"
                                class="form-control"
                                id="wanita__nama"
-                               name="wanita__nama">
+                               name="wanita__nama"
+                               required>
                     </div>
                     <div class="mb-3">
                         <label for="wanita__kk">Kartu Keluarga Wanita</label>

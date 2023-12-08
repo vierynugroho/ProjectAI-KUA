@@ -1,14 +1,14 @@
 @extends('templates.template')
 
 @section('content')
-<div class="container d-flex mt-5">
-    @if(session('success'))
-    <div class="container">
-        <div class="alert alert-success">
-            <b>Yeayy!</b> {{session('success')}}
-        </div>
+@if(session('success'))
+<div class="container">
+    <div class="alert alert-success">
+        <b>Yeayy!</b> {{session('success')}}
     </div>
-    @endif
+</div>
+@endif
+<div class="container d-flex mt-5">
     <div class="justify-content-evenly align-items-center w-100">
         <div class="mt-5">
             <div class="row">
@@ -44,9 +44,9 @@
                             <td>
                                 <a class="btn btn-warning"
                                    href="data/{{ $data->id }}">Akurasi</a>
-                                <button class="btn btn-primary"
-                                        type="submit"
-                                        name="">Edit</button>
+                                <a class="btn btn-primary"
+                                   href="/data/{{ $data->id }}/edit"
+                                   name="">Edit</a>
                                 <button class="btn btn-danger"
                                         type="submit"
                                         name="">Hapus</button>
