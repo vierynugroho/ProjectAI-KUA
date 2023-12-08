@@ -33,9 +33,7 @@ Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('actio
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('/data', DataController::class);
-    Route::get('/akurasi-data', function () {
-        return view('akurasiData');
-    });
+    Route::post('/data/{id}', [DataController::class, 'DataController@akurasi'])->name('actionAkurasi');
     Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 });
 

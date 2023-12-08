@@ -114,7 +114,16 @@ class DataController extends Controller
      */
     public function show(string $id)
     {
-        return view('akurasiData');
+        $data = Pasangan::findOrfail($id);
+
+        return view('akurasiData', [
+            'data' => $data
+        ]);
+    }
+
+    public function akurasi(string $id)
+    {
+        return redirect('/data')->with('success', 'Data Akurasi Diterapkan!');
     }
 
     /**
