@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('id_pria');
             $table->integer('id_wanita');
-            $table->boolean('data_status')->default(false);
+            $table->double('data_status')->default(0)->max(1);
             $table->timestamps();
 
             // foreign config

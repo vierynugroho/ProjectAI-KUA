@@ -41,11 +41,15 @@
                             <td>{{ $i++ }}</td>
                             <td>{{ $data->DataPria->nama_lengkap }} - {{ $data->DataWanita->nama_lengkap }}</td>
                             <td class="text-center">
-                                @if ($data->data_status)
-                                <span class="badge text-bg-success">Valid</span>
-                                @else
-                                <span class="badge text-bg-danger">Invalid</span>
-                                @endif
+                                @if ($data->data_status < 0.5)
+                                  <span
+                                  class="badge text-bg-danger">Invalid</span>
+                                    @elseif ($data->data_status < 1)
+                                      <span
+                                      class="badge text-bg-warning">Hampir Valid</span>
+                                        @elseif ($data->data_status == 1)
+                                        <span class="badge text-bg-success">Valid</span>
+                                        @endif
                             </td>
                             <td class="d-flex justify-content-evenly ">
                                 <a class="btn btn-sm btn-warning"

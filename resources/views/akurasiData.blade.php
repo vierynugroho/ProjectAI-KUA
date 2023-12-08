@@ -7,7 +7,6 @@
     <form action="{{ route('actionAkurasi',$data->id) }}"
           method="POST"
           enctype="multipart/form-data">
-        @method('put')
         @csrf
         <div class="row">
             <div class="col-12 col-md-6">

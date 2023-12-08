@@ -8,7 +8,9 @@ use App\Models\Pasangan;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Smalot\PdfParser\Parser;
 use Yajra\DataTables\Facades\DataTables;
 
 class DataController extends Controller
@@ -123,6 +125,133 @@ class DataController extends Controller
 
     public function akurasi(string $id)
     {
+        $data = Pasangan::findOrfail($id);
+        $parser = new Parser();
+
+        //* pria kk
+        if ($data->DataPria->kk) {
+            $path__pria_kk = storage_path('app/' . $data->DataPria->kk);
+            $pdf__pria_kk = $parser->parseFile($path__pria_kk);
+            $get__pria_kk = $pdf__pria_kk->getText();
+            $get_text__pria_kk = Str::lower($get__pria_kk);
+
+            $match__pria_kk = Str::contains($get_text__pria_kk, ['kartu keluarga']);
+
+            $CF__pria_kk = $match__pria_kk ? 1 : 0;
+        } else {
+            $CF__pria_kk = 0;
+        }
+
+        //* pria ktp
+        if ($data->DataPria->ktp) {
+            $path__pria_ktp = storage_path('app/' . $data->DataPria->ktp);
+            $pdf__pria_ktp = $parser->parseFile($path__pria_ktp);
+            $get__pria_ktp = $pdf__pria_ktp->getText();
+            $get_text__pria_ktp = Str::lower($get__pria_ktp);
+
+            $match__pria_ktp = Str::contains($get_text__pria_ktp, ['kartu tanda penduduk']);
+            $CF__pria_ktp = $match__pria_ktp ? 1 : 0;
+        } else {
+            $CF__pria_ktp = 0;
+        }
+
+        //* pria akta_ayah
+        if ($data->DataPria->akta_ayah) {
+            $path__pria_akta_ayah = storage_path('app/' . $data->DataPria->akta_ayah);
+            $pdf__pria_akta_ayah = $parser->parseFile($path__pria_akta_ayah);
+            $get__pria_akta_ayah = $pdf__pria_akta_ayah->getText();
+            $get_text__pria_akta_ayah = Str::lower($get__pria_akta_ayah);
+
+            $match__pria_akta_ayah = Str::contains($get_text__pria_akta_ayah, ['akta ayah']);
+            $CF__pria_akta_ayah = $match__pria_akta_ayah ? 1 : 0;
+        } else {
+            $CF__pria_akta_ayah = 0;
+        }
+
+
+        //* pria akta_ibu
+        if ($data->DataPria->akta_ibu) {
+            $path__pria_akta_ibu = storage_path('app/' . $data->DataPria->akta_ibu);
+            $pdf__pria_akta_ibu = $parser->parseFile($path__pria_akta_ibu);
+            $get__pria_akta_ibu = $pdf__pria_akta_ibu->getText();
+            $get_text__pria_akta_ibu = Str::lower($get__pria_akta_ibu);
+
+
+            $match__pria_akta_ibu = Str::contains($get_text__pria_akta_ibu, ['akta ibu']);
+
+            $CF__pria_akta_ibu = $match__pria_akta_ibu ? 1 : 0;
+        } else {
+            $CF__pria_akta_ibu = 0;
+        }
+
+        //! wanita kk
+        if ($data->DataWanita->kk) {
+            $path__wanita_kk = storage_path('app/' . $data->DataWanita->kk);
+            $pdf__wanita_kk = $parser->parseFile($path__wanita_kk);
+            $get__wanita_kk = $pdf__wanita_kk->getText();
+            $get_text__wanita_kk = Str::lower($get__wanita_kk);
+
+            $match__wanita_kk = Str::contains($get_text__wanita_kk, ['kartu keluarga']);
+
+            $CF__wanita_kk = $match__wanita_kk ? 1 : 0;
+            // dd($get_text__wanita_kk);
+        } else {
+            $CF__wanita_kk = 0;
+        }
+
+
+        //! wanita ktp
+        if ($data->DataWanita->ktp) {
+            $path__wanita_ktp = storage_path('app/' . $data->DataWanita->ktp);
+            $pdf__wanita_ktp = $parser->parseFile($path__wanita_ktp);
+            $get__wanita_ktp = $pdf__wanita_ktp->getText();
+            $get_text__wanita_ktp = Str::lower($get__wanita_ktp);
+
+            $match__wanita_ktp = Str::contains($get_text__wanita_ktp, ['kartu tanda penduduk']);
+            $CF__wanita_ktp = $match__wanita_ktp ? 1 : 0;
+        } else {
+            $CF__wanita_ktp = 0;
+        }
+
+        //! wanita akta_ayah
+        if ($data->DataWanita->akta_ayah) {
+
+            $path__wanita_akta_ayah = storage_path('app/' . $data->DataWanita->akta_ayah);
+            $pdf__wanita_akta_ayah = $parser->parseFile($path__wanita_akta_ayah);
+            $get__wanita_akta_ayah = $pdf__wanita_akta_ayah->getText();
+            $get_text__wanita_akta_ayah = Str::lower($get__wanita_akta_ayah);
+
+            $match__wanita_akta_ayah = Str::contains($get_text__wanita_akta_ayah, ['akta ayah']);
+
+            $CF__wanita_akta_ayah = $match__wanita_akta_ayah ? 1 : 0;
+        } else {
+            $CF__wanita_akta_ayah = 0;
+        }
+
+        //! wanita akta_ibu
+        if ($data->DataWanita->akta_ibu) {
+
+            $path__wanita_akta_ibu = storage_path('app/' . $data->DataWanita->akta_ibu);
+            $pdf__wanita_akta_ibu = $parser->parseFile($path__wanita_akta_ibu);
+            $get__wanita_akta_ibu = $pdf__wanita_akta_ibu->getText();
+            $get_text__wanita_akta_ibu = Str::lower($get__wanita_akta_ibu);
+
+            $match__wanita_akta_ibu = Str::contains($get_text__wanita_akta_ibu, ['akta ibu']);
+
+            $CF__wanita_akta_ibu = $match__wanita_akta_ibu ? 1 : 0;
+        } else {
+
+            $CF__wanita_akta_ibu = 0;
+        }
+
+        //? Hitung CF
+        $CF__total = ($CF__pria_kk + $CF__pria_ktp + $CF__pria_akta_ayah + $CF__pria_akta_ibu + $CF__wanita_kk + $CF__wanita_ktp + $CF__wanita_akta_ayah + $CF__wanita_akta_ibu) / 8;
+        // dd($CF__pria_kk, $CF__pria_ktp, $CF__pria_akta_ayah, $CF__pria_akta_ibu, $CF__wanita_kk, $CF__wanita_ktp, $CF__wanita_akta_ayah, $CF__wanita_akta_ibu);
+        $data['id_pria'] = $data->DataPria->id;
+        $data['id_wanita'] = $data->DataWanita->id;
+        $data['data_status'] = $CF__total;
+
+        $data->save();
         return redirect('/data')->with('success', 'Data Akurasi Diterapkan!');
     }
 
@@ -205,9 +334,12 @@ class DataController extends Controller
             $dataWanita->akta_ibu = $request->file('wanita__akta-ibu')->store('kk');
         }
 
+        // tiap perubahan data_status invalid lagi
+        $pasangan['data_status'] = 0;
 
         $dataPria->save();
         $dataWanita->save();
+        $pasangan->save();
 
         return redirect('/data')->with('success', 'Data Diubah!');
     }
