@@ -1,7 +1,7 @@
 @extends('templates.template')
 
 @section('content')
-<div class="container m-5">
+<div class="container m-5 mx-auto">
     {{-- type your code here --}}
     <h4>Google Map</h4>
 
