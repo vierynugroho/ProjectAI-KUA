@@ -271,6 +271,19 @@ class DataController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validatedDataPria = $request->validate([
+            'pria__kk' => 'nullable|mimes:pdf',
+            'pria__ktp' => 'nullable|mimes:pdf',
+            'pria__akta_ayah' => 'nullable|mimes:pdf',
+            'pria__akta_ibu' => 'nullable|mimes:pdf',
+        ]);
+        $validatedDataWanita = $request->validate([
+            'wanita__kk' => 'nullable|mimes:pdf',
+            'wanita__ktp' => 'nullable|mimes:pdf',
+            'wanita__akta_ayah' => 'nullable|mimes:pdf',
+            'wanita__akta_ibu' => 'nullable|mimes:pdf',
+        ]);
+
         $pasangan = Pasangan::findOrFail($id);
         $dataPria = DataPria::findOrFail($pasangan->DataPria->id);
         $dataWanita = DataWanita::findOrFail($pasangan->DataWanita->id);
