@@ -11,10 +11,10 @@ class DataWanita extends Model
     protected $table = 'data_wanita';
     protected $fillable = [
         'id',
-        'nama_lengkap',
-        'kk',
-        'ktp',
-        'akta_ayah',
-        'akta_ibu'
+        'wanita__nama_lengkap',
+        'wanita__kk',
+        'wanita__ktp',
+        'wanita__akta_ayah',
+        'wanita__akta_ibu'
     ];
 }

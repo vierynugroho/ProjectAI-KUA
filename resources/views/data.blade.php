@@ -3,9 +3,15 @@
 @section('content')
 @if(session('success'))
 <div class="container">
-    <div class="alert alert-success">
-        <b>Yeayy!</b> {{session('success')}}
+    <div class="alert alert-success alert-dismissible fade show"
+         role="alert">
+        <strong>Yeayy! </strong>{{session('success')}}
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"></button>
     </div>
+</div>
 </div>
 @endif
 <div class="container d-flex mt-5">
@@ -39,7 +45,8 @@
                         @foreach ($datas as $data)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $data->DataPria->nama_lengkap }} - {{ $data->DataWanita->nama_lengkap }}</td>
+                            <td>{{ $data->DataPria->pria__nama_lengkap }} -
+                                {{ $data->DataWanita->wanita__nama_lengkap }}</td>
                             <td class="text-center">
                                 @if ($data->data_status < 0.5)
                                   <span

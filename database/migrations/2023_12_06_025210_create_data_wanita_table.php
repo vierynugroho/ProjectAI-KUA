@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('data_wanita', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('nama_lengkap', 60);
-            $table->string('kk', 255)->default('');
-            $table->string('ktp', 255)->default('');
-            $table->string('akta_ayah', 255)->default('');
-            $table->string('akta_ibu', 255)->default('');
+            $table->string('wanita__nama_lengkap', 60);
+            $table->string('wanita__kk', 255)->default('');
+            $table->string('wanita__ktp', 255)->default('');
+            $table->string('wanita__akta_ayah', 255)->default('');
+            $table->string('wanita__akta_ibu', 255)->default('');
+            $table->double('wanita__cf_kk')->default(0)->max(1);
+            $table->double('wanita__cf_ktp')->default(0)->max(1);
+            $table->double('wanita__cf_akta_ayah')->default(0)->max(1);
+            $table->double('wanita__cf_akta_ibu')->default(0)->max(1);
             $table->timestamps();
         });
     }

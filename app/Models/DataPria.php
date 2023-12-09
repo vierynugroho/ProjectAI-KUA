@@ -12,10 +12,10 @@ class DataPria extends Model
 
     protected $fillable = [
         'id',
-        'nama_lengkap',
-        'kk',
-        'ktp',
-        'akta_ayah',
-        'akta_ibu'
+        'pria__nama_lengkap',
+        'pria__kk',
+        'pria__ktp',
+        'pria__akta_ayah',
+        'pria__akta_ibu'
     ];
 }

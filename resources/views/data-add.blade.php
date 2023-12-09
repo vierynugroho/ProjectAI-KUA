@@ -21,77 +21,143 @@
                         <label for="pria__nama">Nama Lengkap Pria</label>
                         <input type="text"
                                class="form-control"
-                               id="pria__nama"
-                               name="pria__nama"
+                               id="pria__nama_lengkap"
+                               name="pria__nama_lengkap"
+                               value="{{ old('pria__nama_lengkap') }}"
                                required>
                     </div>
                     <div class="mb-3">
                         <label for="pria__kk">Kartu Keluarga Pria</label>
                         <input type="file"
-                               class="form-control"
                                id="pria__kk"
-                               name="pria__kk">
+                               name="pria__kk"
+                               class="form-control @error('pria__kk')
+                                    is-invalid
+                                @enderror"
+                               autofocus>
+                        @error('pria__kk')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="pria__ktp">KTP Pria</label>
                         <input type="file"
-                               class="form-control"
                                id="pria__ktp"
-                               name="pria__ktp">
+                               name="pria__ktp"
+                               class="form-control @error('pria__ktp')
+                                is-invalid
+                            @enderror"
+                               autofocus>
+                        @error('pria__ktp')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="pria__akta-ayah">Akta Ayah Pria</label>
                         <input type="file"
-                               class="form-control"
                                id="pria__akta-ayah"
-                               name="pria__akta-ayah">
+                               name="pria__akta_ayah"
+                               class="form-control accordion @error('pria__akta_ayah')
+                        is-invalid
+                        @enderror"
+                               autofocus>
+                        @error('pria__akta_ayah')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="pria__akta-ibu">Akta Ibu Pria</label>
                         <input type="file"
-                               class="form-control"
                                id="pria__akta-ibu"
-                               name="pria__akta-ibu">
+                               name="pria__akta_ibu"
+                               class="form-control @error('pria__akta_ibu')
+                                is-invalid
+                            @enderror"
+                               autofocus>
+                        @error('pria__akta_ibu')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <div class="mb-3">
-                        <label for="wanita__nama">Nama Lengkap Wanita</label>
+                        <label for="wanita__nama_lengkap">Nama Lengkap Wanita</label>
                         <input type="text"
+                               id="wanita__nama_lengkap"
                                class="form-control"
-                               id="wanita__nama"
-                               name="wanita__nama"
+                               name="wanita__nama_lengkap"
+                               value="{{ old('wanita__nama_lengkap') }}"
                                required>
                     </div>
                     <div class="mb-3">
                         <label for="wanita__kk">Kartu Keluarga Wanita</label>
                         <input type="file"
-                               class="form-control"
                                id="wanita__kk"
-                               name="wanita__kk">
+                               name="wanita__kk"
+                               class="form-control @error('wanita__kk')
+                                is-invalid
+                            @enderror"
+                               autofocus>
+                        @error('wanita__kk')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="wanita__ktp">KTP Wanita</label>
                         <input type="file"
-                               class="form-control"
                                id="wanita__ktp"
-                               name="wanita__ktp">
+                               name="wanita__ktp"
+                               class="form-control @error('wanita__ktp')
+                                is-invalid
+                            @enderror"
+                               autofocus>
+                        @error('wanita__ktp')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="wanita__akta-ayah">Akta Ayah Wanita</label>
+                        <label for="wanita__akta_ayah">Akta Ayah Wanita</label>
                         <input type="file"
-                               class="form-control"
-                               id="wanita__akta-ayah"
-                               name="wanita__akta-ayah">
+                               id="wanita__akta_ayah"
+                               name="wanita__akta_ayah"
+                               class="form-control @error('wanita__akta_ayah')
+                                is-invalid
+                            @enderror"
+                               autofocus>
+                        @error('wanita__akta_ayah')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="wanita__akta-ibu">Akta Ibu Wanita</label>
+                        <label for="wanita__akta_ibu">Akta Ibu Wanita</label>
                         <input type="file"
-                               class="form-control"
-                               id="wanita__akta-ibu"
-                               name="wanita__akta-ibu">
+                               id="wanita__akta_ibu"
+                               name="wanita__akta_ibu"
+                               class="form-control @error('wanita__akta_ibu')
+                                is-invalid
+                            @enderror"
+                               autofocus>
+                        @error('wanita__akta_ibu')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                 </div>
             </div>

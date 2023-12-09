@@ -22,141 +22,215 @@
                         <label for="pria__nama">Nama Lengkap Pria</label>
                         <input type="text"
                                class="form-control"
-                               id="pria__nama"
-                               name="pria__nama"
-                               value="{{ $data->DataPria->nama_lengkap }}">
+                               id="pria__nama_lengkap"
+                               name="pria__nama_lengkap"
+                               value="{{ $data->DataPria->pria__nama_lengkap }}"
+                               required>
                     </div>
                     <div class="mb-3">
                         <label for="pria__kk">Kartu Keluarga Pria</label>
-                        <small class="text-danger fst-italic">
-                            @if ($data->DataPria->kk)
-                            {{ $data->DataPria->kk }}
-                            @else
-                            {{ ' * Data Kosong' }}
-                            @endif
-                        </small>
+                        @if ($data->DataPria->pria__kk)
+                        <p class="small fs-italic text-muted">
+                            {{ $data->DataPria->pria__kk }}
+                        </p>
+                        @else
+                        <p class="small fs-italic text-danger">
+                            * Data Belum Diisi
+                        </p>
+                        @endif
                         <input type="file"
-                               class="form-control"
                                id="pria__kk"
                                name="pria__kk"
-                               value="{{ Storage::url($data->DataPria->kk) }}">
+                               class="form-control @error('pria__kk')
+                                    is-invalid
+                                @enderror"
+                               autofocus>
+                        @error('pria__kk')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="pria__ktp">KTP Pria</label>
-                        <small class="text-danger fst-italic">
-                            @if ($data->DataPria->ktp)
-                            {{ $data->DataPria->ktp }}
-                            @else
-                            {{ ' * Data Kosong' }}
-                            @endif
-                        </small>
+                        @if ($data->DataPria->pria__ktp)
+                        <p class="small fs-italic text-muted">
+                            {{ $data->DataPria->pria__ktp }}
+                        </p>
+                        @else
+                        <p class="small fs-italic text-danger">
+                            * Data Belum Diisi
+                        </p>
+                        @endif
                         <input type="file"
-                               class="form-control"
                                id="pria__ktp"
                                name="pria__ktp"
-                               value="{{ $data->DataPria->ktp }}">
+                               class="form-control @error('pria__ktp')
+                                    is-invalid
+                                @enderror"
+                               autofocus>
+                        @error('pria__ktp')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="pria__akta-ayah">Akta Ayah Pria</label>
-                        <small class="text-danger fst-italic">
-                            @if ($data->DataPria->akta_ayah)
-                            {{ $data->DataPria->akta_ayah }}
-                            @else
-                            {{ ' * Data Kosong' }}
-                            @endif
-                        </small>
+                        @if ($data->DataPria->pria__akta_ayah)
+                        <p class="small fs-italic text-muted">
+                            {{ $data->DataPria->pria__akta_ayah }}
+                        </p>
+                        @else
+                        <p class="small fs-italic text-danger">
+                            * Data Belum Diisi
+                        </p>
+                        @endif
                         <input type="file"
-                               class="form-control"
                                id="pria__akta-ayah"
-                               name="pria__akta-ayah"
-                               value="{{ $data->DataPria->akta_ayah }}">
+                               name="pria__akta_ayah"
+                               class="form-control accordion @error('pria__akta_ayah')
+                            is-invalid
+                            @enderror"
+                               autofocus>
+                        @error('pria__akta_ayah')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="pria__akta-ibu">Akta Ibu Pria</label>
-                        <small class="text-danger fst-italic">
-                            @if ($data->DataPria->akta_ibu)
-                            {{ $data->DataPria->akta_ibu }}
-                            @else
-                            {{ ' * Data Kosong' }}
-                            @endif
-                        </small>
+                        @if ($data->DataPria->pria__akta_ibu)
+                        <p class="small fs-italic text-muted">
+                            {{ $data->DataPria->pria__akta_ibu }}
+                        </p>
+                        @else
+                        <p class="small fs-italic text-danger">
+                            * Data Belum Diisi
+                        </p>
+                        @endif
                         <input type="file"
-                               class="form-control"
                                id="pria__akta-ibu"
-                               name="pria__akta-ibu"
-                               value="{{ $data->DataPria->akta_ibu }}">
+                               name="pria__akta_ibu"
+                               class="form-control @error('pria__akta_ibu')
+                                    is-invalid
+                                @enderror"
+                               autofocus>
+                        @error('pria__akta_ibu')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="form-group">
                     <div class="mb-3">
-                        <label for="wanita__nama">Nama Lengkap Wanita</label>
+                        <label for="wanita__nama_lengkap">Nama Lengkap Wanita</label>
                         <input type="text"
+                               id="wanita__nama_lengkap"
                                class="form-control"
-                               id="wanita__nama"
-                               name="wanita__nama"
-                               value="{{ $data->DataWanita->nama_lengkap }}">
+                               name="wanita__nama_lengkap"
+                               value="{{ $data->DataWanita->wanita__nama_lengkap }}"
+                               required>
                     </div>
                     <div class="mb-3">
                         <label for="wanita__kk">Kartu Keluarga Wanita</label>
-                        <small class="text-danger fst-italic">
-                            @if ($data->DataWanita->kk)
-                            {{ $data->DataWanita->kk }}
-                            @else
-                            {{ ' * Data Kosong' }}
-                            @endif
-                        </small>
+                        @if ($data->DataWanita->wanita__kk)
+                        <p class="small fs-italic text-muted">
+                            {{ $data->DataWanita->wanita__kk }}
+                        </p>
+                        @else
+                        <p class="small fs-italic text-danger">
+                            * Data Belum Diisi
+                        </p>
+                        @endif
                         <input type="file"
-                               class="form-control"
                                id="wanita__kk"
                                name="wanita__kk"
-                               value="{{ $data->DataWanita->kk }}">
+                               class="form-control @error('wanita__kk')
+                                    is-invalid
+                                @enderror"
+                               autofocus>
+                        @error('wanita__kk')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="wanita__ktp">KTP Wanita</label>
-                        <small class="text-danger fst-italic">
-                            @if ($data->DataWanita->ktp)
-                            {{ $data->DataWanita->ktp }}
-                            @else
-                            {{ ' * Data Kosong' }}
-                            @endif
-                        </small>
+                        @if ($data->DataWanita->wanita__ktp)
+                        <p class="small fs-italic text-muted">
+                            {{ $data->DataWanita->wanita__ktp }}
+                        </p>
+                        @else
+                        <p class="small fs-italic text-danger">
+                            * Data Belum Diisi
+                        </p>
+                        @endif
                         <input type="file"
-                               class="form-control"
                                id="wanita__ktp"
                                name="wanita__ktp"
-                               value="{{ $data->DataWanita->ktp }}">
+                               class="form-control @error('wanita__ktp')
+                                    is-invalid
+                                @enderror"
+                               autofocus>
+                        @error('wanita__ktp')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="wanita__akta-ayah">Akta Ayah Wanita</label>
-                        <small class="text-danger fst-italic">
-                            @if ($data->DataWanita->akta_ayah)
-                            {{ $data->DataWanita->akta_ayah }}
-                            @else
-                            {{ ' * Data Kosong' }}
-                            @endif
-                        </small>
+                        <label for="wanita__akta_ayah">Akta Ayah Wanita</label>
+                        @if ($data->DataWanita->wanita__akta_ayah)
+                        <p class="small fs-italic text-muted">
+                            {{ $data->DataWanita->wanita__akta_ayah }}
+                        </p>
+                        @else
+                        <p class="small fs-italic text-danger">
+                            * Data Belum Diisi
+                        </p>
+                        @endif
                         <input type="file"
-                               class="form-control"
-                               id="wanita__akta-ayah"
-                               name="wanita__akta-ayah"
-                               value="{{ $data->DataWanita->akta_ayah }}">
+                               id="wanita__akta_ayah"
+                               name="wanita__akta_ayah"
+                               class="form-control @error('wanita__akta_ayah')
+                                    is-invalid
+                                @enderror"
+                               autofocus>
+                        @error('wanita__akta_ayah')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="wanita__akta-ibu">Akta Ibu Wanita</label>
-                        <small class="text-danger fst-italic">
-                            @if ($data->DataWanita->akta_ibu)
-                            {{ $data->DataWanita->akta_ibu }}
-                            @else
-                            {{ ' * Data Kosong' }}
-                            @endif
-                        </small>
+                        <label for="wanita__akta_ibu">Akta Ibu Wanita</label>
+                        @if ($data->DataWanita->wanita__akta_ibu)
+                        <p class="small fs-italic text-muted">
+                            {{ $data->DataWanita->wanita__akta_ibu }}
+                        </p>
+                        @else
+                        <p class="small fs-italic text-danger">
+                            * Data Belum Diisi
+                        </p>
+                        @endif
                         <input type="file"
-                               class="form-control"
-                               id="wanita__akta-ibu"
-                               name="wanita__akta-ibu"
-                               value="{{ $data->DataWanita->akta_ibu }}">
+                               id="wanita__akta_ibu"
+                               name="wanita__akta_ibu"
+                               class="form-control @error('wanita__akta_ibu')
+                                    is-invalid
+                                @enderror"
+                               autofocus>
+                        @error('wanita__akta_ibu')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                 </div>
             </div>
