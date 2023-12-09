@@ -28,6 +28,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="pria__kk">Kartu Keluarga Pria</label>
+                        @if ($data->DataPria->pria__cf_kk == 1)
+                        <span class="badge text-bg-success">
+                            Valid
+                        </span>
+                        @else
+                        <span class="badge text-bg-danger">
+                            Invalid
+                        </span>
+                        @endif
                         @if ($data->DataPria->pria__kk)
                         <p class="small fs-italic text-muted">
                             {{ $data->DataPria->pria__kk }}
@@ -52,6 +61,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="pria__ktp">KTP Pria</label>
+                        @if ($data->DataPria->pria__cf_ktp == 1)
+                        <span class="badge text-bg-success">
+                            Valid
+                        </span>
+                        @else
+                        <span class="badge text-bg-danger">
+                            Invalid
+                        </span>
+                        @endif
                         @if ($data->DataPria->pria__ktp)
                         <p class="small fs-italic text-muted">
                             {{ $data->DataPria->pria__ktp }}
@@ -76,6 +94,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="pria__akta-ayah">Akta Ayah Pria</label>
+                        @if ($data->DataPria->pria__cf_akta_ayah == 1)
+                        <span class="badge text-bg-success">
+                            Valid
+                        </span>
+                        @else
+                        <span class="badge text-bg-danger">
+                            Invalid
+                        </span>
+                        @endif
                         @if ($data->DataPria->pria__akta_ayah)
                         <p class="small fs-italic text-muted">
                             {{ $data->DataPria->pria__akta_ayah }}
@@ -100,6 +127,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="pria__akta-ibu">Akta Ibu Pria</label>
+                        @if ($data->DataPria->pria__cf_akta_ibu == 1)
+                        <span class="badge text-bg-success">
+                            Valid
+                        </span>
+                        @else
+                        <span class="badge text-bg-danger">
+                            Invalid
+                        </span>
+                        @endif
                         @if ($data->DataPria->pria__akta_ibu)
                         <p class="small fs-italic text-muted">
                             {{ $data->DataPria->pria__akta_ibu }}
@@ -137,6 +173,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="wanita__kk">Kartu Keluarga Wanita</label>
+                        @if ($data->DataWanita->wanita__cf_kk == 1)
+                        <span class="badge text-bg-success">
+                            Valid
+                        </span>
+                        @else
+                        <span class="badge text-bg-danger">
+                            Invalid
+                        </span>
+                        @endif
                         @if ($data->DataWanita->wanita__kk)
                         <p class="small fs-italic text-muted">
                             {{ $data->DataWanita->wanita__kk }}
@@ -161,6 +206,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="wanita__ktp">KTP Wanita</label>
+                        @if ($data->DataWanita->wanita__cf_ktp == 1)
+                        <span class="badge text-bg-success">
+                            Valid
+                        </span>
+                        @else
+                        <span class="badge text-bg-danger">
+                            Invalid
+                        </span>
+                        @endif
                         @if ($data->DataWanita->wanita__ktp)
                         <p class="small fs-italic text-muted">
                             {{ $data->DataWanita->wanita__ktp }}
@@ -185,6 +239,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="wanita__akta_ayah">Akta Ayah Wanita</label>
+                        @if ($data->DataWanita->wanita__cf_akta_ayah == 1)
+                        <span class="badge text-bg-success">
+                            Valid
+                        </span>
+                        @else
+                        <span class="badge text-bg-danger">
+                            Invalid
+                        </span>
+                        @endif
                         @if ($data->DataWanita->wanita__akta_ayah)
                         <p class="small fs-italic text-muted">
                             {{ $data->DataWanita->wanita__akta_ayah }}
@@ -209,6 +272,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="wanita__akta_ibu">Akta Ibu Wanita</label>
+                        @if ($data->DataWanita->wanita__cf_akta_ibu == 1)
+                        <span class="badge text-bg-success">
+                            Valid
+                        </span>
+                        @else
+                        <span class="badge text-bg-danger">
+                            Invalid
+                        </span>
+                        @endif
                         @if ($data->DataWanita->wanita__akta_ibu)
                         <p class="small fs-italic text-muted">
                             {{ $data->DataWanita->wanita__akta_ibu }}
