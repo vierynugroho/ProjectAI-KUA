@@ -236,8 +236,16 @@
             </div>
         </div>
 
-        <button type="submit"
-                class="btn btn-warning d-block w-100 fw-bold">Simpan Data</button>
+        <div class="row">
+            <div class="col-8">
+                <button type="submit"
+                        class="btn btn-warning btn-block w-100 fw-bold">Simpan Data</button>
+            </div>
+            <div class="col-4">
+                <a href="/data"
+                   class="btn btn-secondary btn-block w-100 fw-bold">Batal</a>
+            </div>
+        </div>
     </form>
 </div>
 @endsection
