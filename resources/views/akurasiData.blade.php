@@ -1,9 +1,9 @@
 @extends('templates.template')
 
 @section('content')
-<div class="container mt-5"
-     style="background-color: whitesmoke">
-    <h3 class="mb-5">Akurasi Data Pernikahan</h3>
+<div class="container m-5 mx-auto">
+    <h3 class="
+     mb-5">Akurasi Data Pernikahan</h3>
     <form action="{{ route('actionAkurasi',$data->id) }}"
           method="POST"
           enctype="multipart/form-data">

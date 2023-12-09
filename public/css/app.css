@@ -25,33 +25,12 @@ nav ul li a.btn {
     font-weight: bold;
 }
 
-/* main content */
-main {
-    height: 80vh;
-}
 
 .poster img {
     position: relative;
     bottom: 0;
 }
 
-/* edit */
-input #edit {
-    color: red;
-    display: none;
-}
-
-#edit[value=""]+#edit::before {
-    color: red;
-    content: "*Belum ada data";
-    position: absolute;
-    right: 0;
-}
-
-/* Footer */
-footer {
-    height: 5vh;
-}
 
 @media screen and (max-width: 875px) {
     header {
@@ -67,6 +46,10 @@ footer {
     main .container {
         flex-direction: column;
     }
+}
+
+.container {
+    background-color: transparent !important;
 }
 
 /* hubungi kami */

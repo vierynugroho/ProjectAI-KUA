@@ -1,8 +1,7 @@
 @extends('templates.template')
 
 @section('content')
-<div class="container mt-5"
-     style="background-color: whitesmoke">
+<div class="container m-5 mx-auto ">
     <h3 class="mb-5">Tambah Data Pernikahan</h3>
     <form action="/data"
           method="POST"
