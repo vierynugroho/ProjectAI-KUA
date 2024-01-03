@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\DataPria;
 use App\Models\DataWanita;
 use App\Models\Pasangan;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -129,8 +128,9 @@ class DataController extends Controller
             $get__pria_kk = $pdf__pria_kk->getText();
             $get_text__pria_kk = Str::lower($get__pria_kk);
 
-            $match__pria_kk = Str::contains($get_text__pria_kk, ['kartu keluarga']);
-            $CF__pria_kk = $match__pria_kk ? 1 : 0;
+            $cf_rule__pria_kk = Str::contains($get_text__pria_kk, ['kartu keluarga']);
+
+            $CF__pria_kk = $cf_rule__pria_kk ? 1 : 0;
             $dataPria->pria__cf_kk = $CF__pria_kk;
         } else {
             $CF__pria_kk = 0;
@@ -143,8 +143,8 @@ class DataController extends Controller
             $get__pria_ktp = $pdf__pria_ktp->getText();
             $get_text__pria_ktp = Str::lower($get__pria_ktp);
 
-            $match__pria_ktp = Str::contains($get_text__pria_ktp, ['kartu tanda penduduk']);
-            $CF__pria_ktp = $match__pria_ktp ? 1 : 0;
+            $cf_rule__pria_ktp = Str::contains($get_text__pria_ktp, ['kartu tanda penduduk']);
+            $CF__pria_ktp = $cf_rule__pria_ktp ? 1 : 0;
             $dataPria->pria__cf_ktp = $CF__pria_ktp;
         } else {
             $CF__pria_ktp = 0;
@@ -157,8 +157,8 @@ class DataController extends Controller
             $get__pria_akta_ayah = $pdf__pria_akta_ayah->getText();
             $get_text__pria_akta_ayah = Str::lower($get__pria_akta_ayah);
 
-            $match__pria_akta_ayah = Str::contains($get_text__pria_akta_ayah, ['akta ayah']);
-            $CF__pria_akta_ayah = $match__pria_akta_ayah ? 1 : 0;
+            $cf_rule__pria_akta_ayah = Str::contains($get_text__pria_akta_ayah, ['akta ayah']);
+            $CF__pria_akta_ayah = $cf_rule__pria_akta_ayah ? 1 : 0;
             $dataPria->pria__cf_akta_ayah = $CF__pria_akta_ayah;
         } else {
             $CF__pria_akta_ayah = 0;
@@ -173,8 +173,8 @@ class DataController extends Controller
             $get_text__pria_akta_ibu = Str::lower($get__pria_akta_ibu);
 
 
-            $match__pria_akta_ibu = Str::contains($get_text__pria_akta_ibu, ['akta ibu']);
-            $CF__pria_akta_ibu = $match__pria_akta_ibu ? 1 : 0;
+            $cf_rule__pria_akta_ibu = Str::contains($get_text__pria_akta_ibu, ['akta ibu']);
+            $CF__pria_akta_ibu = $cf_rule__pria_akta_ibu ? 1 : 0;
             $dataPria->pria__cf_akta_ibu = $CF__pria_akta_ibu;
         } else {
             $CF__pria_akta_ibu = 0;
@@ -187,8 +187,8 @@ class DataController extends Controller
             $get__wanita_kk = $pdf__wanita_kk->getText();
             $get_text__wanita_kk = Str::lower($get__wanita_kk);
 
-            $match__wanita_kk = Str::contains($get_text__wanita_kk, ['kartu keluarga']);
-            $CF__wanita_kk = $match__wanita_kk ? 1 : 0;
+            $cf_rule__wanita_kk = Str::contains($get_text__wanita_kk, ['kartu keluarga']);
+            $CF__wanita_kk = $cf_rule__wanita_kk ? 1 : 0;
             $dataWanita->wanita__cf_kk = $CF__wanita_kk;
             // dd($get_text__wanita_kk);
         } else {
@@ -203,8 +203,8 @@ class DataController extends Controller
             $get__wanita_ktp = $pdf__wanita_ktp->getText();
             $get_text__wanita_ktp = Str::lower($get__wanita_ktp);
 
-            $match__wanita_ktp = Str::contains($get_text__wanita_ktp, ['kartu tanda penduduk']);
-            $CF__wanita_ktp = $match__wanita_ktp ? 1 : 0;
+            $cf_rule__wanita_ktp = Str::contains($get_text__wanita_ktp, ['kartu tanda penduduk']);
+            $CF__wanita_ktp = $cf_rule__wanita_ktp ? 1 : 0;
             $dataWanita->wanita__cf_ktp = $CF__wanita_ktp;
         } else {
             $CF__wanita_ktp = 0;
@@ -218,8 +218,8 @@ class DataController extends Controller
             $get__wanita_akta_ayah = $pdf__wanita_akta_ayah->getText();
             $get_text__wanita_akta_ayah = Str::lower($get__wanita_akta_ayah);
 
-            $match__wanita_akta_ayah = Str::contains($get_text__wanita_akta_ayah, ['akta ayah']);
-            $CF__wanita_akta_ayah = $match__wanita_akta_ayah ? 1 : 0;
+            $cf_rule__wanita_akta_ayah = Str::contains($get_text__wanita_akta_ayah, ['akta ayah']);
+            $CF__wanita_akta_ayah = $cf_rule__wanita_akta_ayah ? 1 : 0;
             $dataWanita->wanita__cf_akta_ayah = $CF__wanita_akta_ayah;
         } else {
             $CF__wanita_akta_ayah = 0;
@@ -233,20 +233,66 @@ class DataController extends Controller
             $get__wanita_akta_ibu = $pdf__wanita_akta_ibu->getText();
             $get_text__wanita_akta_ibu = Str::lower($get__wanita_akta_ibu);
 
-            $match__wanita_akta_ibu = Str::contains($get_text__wanita_akta_ibu, ['akta ibu']);
-            $CF__wanita_akta_ibu = $match__wanita_akta_ibu ? 1 : 0;
+            $cf_rule__wanita_akta_ibu = Str::contains($get_text__wanita_akta_ibu, ['akta ibu']);
+            $CF__wanita_akta_ibu = $cf_rule__wanita_akta_ibu ? 1 : 0;
             $dataWanita->wanita__cf_akta_ibu = $CF__wanita_akta_ibu;
         } else {
 
             $CF__wanita_akta_ibu = 0;
         }
 
-        //? Hitung CF
-        $CF__total = ($CF__pria_kk + $CF__pria_ktp + $CF__pria_akta_ayah + $CF__pria_akta_ibu + $CF__wanita_kk + $CF__wanita_ktp + $CF__wanita_akta_ayah + $CF__wanita_akta_ibu) / 8;
+        // Data hipotesis
+        // Yaitu hasil yang dicari / hasil yang didapat dari gejala-gejala
+        // ! Data Pasangan
+        $hipotesis = array(
+            $CF__pria_kk,
+            $CF__pria_ktp,
+            $CF__pria_akta_ayah,
+            $CF__pria_akta_ibu, $CF__wanita_kk,
+            $CF__wanita_ktp,
+            $CF__wanita_akta_ayah,
+            $CF__wanita_akta_ibu
+        );
+
+        // Rule
+        // ! CF Rules
+        $rules = array(0, 0.125, 0.025, 0.5, 0.625, 0.75, 0.875, 1);
+
+        // Evidence
+        // fakta / gejala yang mendukung hipotesa
+        // ! Evidence
+        // evidence diterapkan pada UI
+        $evidence = array(
+            'valid' => $rules[7],
+            'hampir_valid' => [$rules[6], $rules[5], $rules[4], $rules[3]],
+            'tidak_valid' => [$rules[2], $rules[1], $rules[0]],
+        );
+
+        //! Rumus
+        //*   Jika data yang diketahui adalah 1 hipotesa mempunyai 1 CF rule, 1 evidence, dan 1 CF evidence. Maka hasil yang dicari adalah besarnya kepercayaan (CF) pada hipotesa ini.
+        //TODO: CF[H, E] = CF[E] * CF[Rule]
+        //? Keterangan
+        // CF[H, E] : cf dari hipotesis yang dipengaruhi evidence
+        // CF[E] = besar CF dari evidence
+        // CF[Rule] = besar CF dari pakar
+
+        // Hitung CF[H,E]
+        $cf_he = array();
+        for ($i = 0; $i < count($hipotesis); $i++) {
+            $cf_he[] = $hipotesis[$i] * $rules[$i];
+        }
+
+        // Hitung kombinasi CF
+        $cf_combined = $cf_he[0];
+        for ($i = 1; $i < count($cf_he); $i++) {
+            $cf_combined += $cf_he[$i] * (1 - $cf_combined);
+        }
+
 
         $data['id_pria'] = $data->DataPria->id;
         $data['id_wanita'] = $data->DataWanita->id;
-        $data['data_status'] = $CF__total;
+        // $data['data_status'] = ($CF_MB + $CF_MD) * (1 - $CF_MB);
+        $data['data_status'] = $cf_combined;
 
         $dataPria->save();
         $dataWanita->save();
